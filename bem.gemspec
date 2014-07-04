@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Bem::VERSION
   spec.authors       = ['Kopylov German']
   spec.email         = ['roverrr@gmail.com']
-  spec.summary       = ' Ruby library for working with BEM in rails projects '
-  spec.description   = ' Ruby library for working with BEM in rails projects '
-  spec.homepage      = ''
+  spec.summary       = 'Ruby library for working with BEM in rails projects'
+  spec.description   = 'Ruby library for working with BEM in rails projects'
+  spec.homepage      = 'https://github.com/gkopylov/bem'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
