@@ -1,0 +1,11 @@
+// function your_function_name_initializer() {
+//
+// }
+//
+// $(function() {
+//   your_function_name_initializer();
+// });
+//
+// $(window).bind('page:load', function() {
+//   your_function_name_initializer();
+// })

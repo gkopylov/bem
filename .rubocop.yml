@@ -1,0 +1,13 @@
+AllCops:
+  Includes:
+    - 'Gemfile'
+    - 'bem.gemspec'
+
+HashSyntax:
+  EnforcedStyle: hash_rockets
+
+DotPosition:
+  EnforcedStyle: trailing
+
+Encoding:
+  Enabled: false
