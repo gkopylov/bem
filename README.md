@@ -82,6 +82,8 @@ For destroy blocks, elements, modificators, levels and manifests use command `be
 For detail information about this command:
 
     $ bem help destroy
+    
+This application https://github.com/gkopylov/bem_with_rails_and_less_example_app was created for demonstrate of using this gem.
 
 ## Contributing
 
