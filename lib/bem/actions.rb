@@ -16,13 +16,17 @@ module BEM
       BEM.configuration.technologies.each do |tech|
         path = build_path_for(tech[:extension], options, tech[:group])
 
-        remove_file File.expand_path('..', path)
-
-        level = level_path(options[:level], tech)
-
         path_without_extension = path.split("#{ tech[:group] }/").last.sub(tech[:extension], '')
 
-        gsub_file(level, string_to_append(tech, path_without_extension), '') if File.exist? level
+        remove_file File.expand_path('..', path)
+
+        manifest_name = options[:manifest].present? ? options[:manifest] : 'application'
+
+        manifest = File.join(Rails.root, 'app', 'assets', tech[:group], manifest_name + tech[:extension])
+
+        path = options[:remove_from_manifest] ? manifest : level_path(options[:level], tech)
+
+        gsub_file(path, string_to_append(tech, path_without_extension), '') if File.exist? path
       end
     end
 

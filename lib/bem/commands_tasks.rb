@@ -27,6 +27,7 @@ class CommandsTasks < Thor
   method_option :value, :type => :string, :aliases => '-v', :desc => 'Value for modificator.'
   method_option :level, :type => :string, :aliases => '-l', :desc => 'Destroy or use given level.'
   method_option :manifest, :type => :string, :aliases => '-a', :desc => 'Manifests to append level'
+  method_option :remove_from_manifest, :type => :boolean, :aliases => '-i', :desc => 'Remove css asset from manifest'
   def destroy
     destroy_with options
   end
