@@ -6,9 +6,9 @@ module BEM
 
         handle_bem(options, tech) if options[:block].present?
 
-        handle_level(options, tech)
+        handle_level(options, tech) unless options[:include_to_manifest]
 
-        handle_manifest(options, tech) if options[:manifest].present?
+        handle_manifest(options, tech) if options[:manifest].present? || options[:include_to_manifest]
       end
     end
 
@@ -49,13 +49,16 @@ module BEM
     end
 
     def handle_manifest(options, tech)
-      manifest = File.join(Rails.root, 'app', 'assets', tech[:group], options[:manifest] + tech[:extension])
+      manifest_name = options[:manifest].present? ? options[:manifest] : 'application'
 
-      level = level_path(options[:level], tech)
+      manifest = File.join(Rails.root, 'app', 'assets', tech[:group], manifest_name + tech[:extension])
+
+      path = options[:include_to_manifest] ? build_path_for(tech[:extension], options, tech[:group]) :
+        level_path(options[:level], tech)
 
       File.exist?(manifest) ? (puts("#{ manifest } already exists") if !options[:block].present?) : create_file(manifest)
 
-      append_file manifest, string_to_append(tech, level.split("#{ tech[:group] }/").last.sub(tech[:extension], ''))
+      append_file manifest, string_to_append(tech, path.split("#{ tech[:group] }/").last.sub(tech[:extension], ''))
     end
 
     def build_path_for(extension, options, group)

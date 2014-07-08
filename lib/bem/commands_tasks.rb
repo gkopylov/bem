@@ -15,6 +15,7 @@ class CommandsTasks < Thor
   method_option :manifest, :type => :string, :aliases => '-a', :desc => 'Manifests to append level'
   method_option :js, :default => true, :type => :boolean, :aliases => '-j', :desc => 'Do create assets with javascripts'
   method_option :css, :default => true, :type => :boolean, :aliases => '-s', :desc => 'Do create assets with stylesheets'
+  method_option :include_to_manifest, :type => :boolean, :aliases => '-i', :desc => 'Include css asset to manifest'
   def create
     build_with options
   end
